@@ -1,6 +1,7 @@
-var express=require('express'); //pozivanje modula express
-var path=require('path');
+const express=require('express'); //pozivanje modula express
+const path=require('path');
 const sqlite3 = require('sqlite3').verbose();
+const ruter= require('./ruter');
 
 const app =  express();
 var baza = new sqlite3.Database('rodendan.db');//deklaracija baze podataka
@@ -12,6 +13,10 @@ app.use(express.static("public"));
 //konfiguracija
 app.set('view engine', 'ejs');//format view-a ejs
 app.set('views', path.join(__dirname, 'views'));//dirname-om definiran folder views
+
+app.use("/", ruter);
+
+
 
 
 /////povezivanje s bazom
@@ -44,14 +49,6 @@ var baza = new sqlite3.Database('rodendan.db', (err) => {
   });*/
 
 
-//pozivanje početne i ostalih viewa
-app.get('/', function(req, res){
-    res.render('index');//pozivanje index stranice
-});
-
-app.get('/prijava', function(req, res){
-    res.render('prijavas');
-});
 
 
 var port=3000
