@@ -9,7 +9,7 @@ const app =  express();
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.raw());
@@ -17,8 +17,8 @@ app.use(bodyParser.text());
 
 
 //konfiguracija
-app.set('view engine', 'ejs');//format view-a ejs
 app.set('views', path.join(__dirname, 'views'));//dirname-om definiran folder views
+app.set('view engine', 'ejs');//format view-a ejs
 
 app.use("/", ruter);
 
@@ -34,6 +34,13 @@ veza.connect((err) => {
   if (err) throw err;
   console.log('Uspješno povezivanje s bazom!');
 });
+/*provjera unosa u bazu
+var sql = "INSERT INTO Admin(sifra_admina, username, password, naziv) values (1, 'sanja', 'sanja', 'Sanja Žmarić')";
+  veza.query(sql, function (err, result){
+    if (err) throw err;
+    console.log("Uspješno dodan red u bazu.");
+  });/*
+
 
 
 /*povezivanje s bazom OVO JE BILA ALTERNATIVA JER NISAM USPJEVALA POVEZAT phpmyadmin 
@@ -72,9 +79,7 @@ var baza = new sqlite3.Database('rodendan.db', (err) => {
 var port=3000
 app.listen(port, function(){
     console.log('Server je pokrenut na portu '+port);
+
 });
 
-
-
-
-
+module.exports=app;

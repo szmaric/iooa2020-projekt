@@ -8,7 +8,8 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(bodyParser.text());
-
+const ruter =express.Router();
+const controller =require("./controllers/controller");
 
 module.exports = function(app) {
     app.use(bodyParser.json());
@@ -18,9 +19,6 @@ module.exports = function(app) {
     }));
     return app;
 }
-const ruter =express.Router();
-const controller =require("./controllers/controller");
-
 //početna stranica
 ruter.get("/", controller.renderNaslovna);
 ruter.post("/", controller.spremiUnos);
