@@ -10,3 +10,4 @@ exports.spremiUnos =(req,res)=>{
 exports.renderPrijava = (req,res) =>{
     res.render("prijava");
 };
+
