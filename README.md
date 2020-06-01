@@ -16,5 +16,9 @@ open-source, cross-platforma koja omogućuje korištenje JavaScripta za pisanje 
 Express v.4.17.1 
 ```
 popularan, brz, minimalan i fleksibilan MVC framework za pisanje web aplikacija  unutar Node.js okruženja 
+```
+Bootstrap v4.5.0
+```
+frontend CSS
 
-Phpmyadmin kao baza podataka
+MySql za upravljanje bazom podataka
