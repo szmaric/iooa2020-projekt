@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stil.css">
+    <title>Igraonica Barbi</title>
+  </head>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Igraonica Barbi</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Početna stranica</a></li>
+      </ul>
+      <ul class="nav  navbar-right">
+        <li class="active"><a href="/prijava">Prijava</a></li>
+        <li><a href="/registracija"> Registracija</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">
+        Admin prijava
+      </div>
+      <form action=/auth/prijava method="post">
+        <div class="card-body">
+          <form action=/auth/registracija method="post">
+            <div class="form-group">
+              <label for="username">Korisničko ime</label>
+              <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Lozinka</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Prijava</button>
+          </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  </body>
+</html>

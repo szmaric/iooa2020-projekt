@@ -9,16 +9,16 @@ Aplikaciju će koristiti korisnici koji žele rezervirati proslavu rođendana te
 ### Tehnologije
 Integrirano razvojno okruženje (IDE) - Visual Studio Code v.1.45
 ```
-Node.js v.12.17.0 LTS
+Node.js v.12.17.0 LTS - open-source, cross-platforma koja omogućuje korištenje JavaScripta za pisanje koda i skriptiranje na strani poslužitelja
 ```
-open-source, cross-platforma koja omogućuje korištenje JavaScripta za pisanje koda i skriptiranje na strani poslužitelja
+
 ```
-Express v.4.17.1 
+Express v.4.17.1 - popularan, brz, minimalan i fleksibilan MVC framework za pisanje web aplikacija  unutar Node.js okruženja 
 ```
-popularan, brz, minimalan i fleksibilan MVC framework za pisanje web aplikacija  unutar Node.js okruženja 
+
 ```
-Bootstrap v4.5.0
+Bootstrap v4.5.0 - frontend CSS
 ```
-frontend CSS
+
 
 MySql za upravljanje bazom podataka

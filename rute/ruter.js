@@ -1,10 +1,9 @@
 const express=require("express");
-const bcrypt=require("bcrypt");
+const bcrypt=require("bcryptjs");
 const ruter =express.Router();
 var controller =require("../controllers/controller");
 var app=express();
 var bodyParser = require('body-parser');
-
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -13,12 +12,20 @@ app.use(bodyParser.text());
 
 
 //pozivanje stranica putem controllera
-ruter.get('/', controller.renderNaslovna);
-ruter.get('/prijava', controller.renderPrijava);
-ruter.get('/registracija', controller.renderRegistracija);
+ruter.get('/', (req, res)=>{
+    res.render('index');
+});
+
+ruter.get('/prijava', (req, res)=>{
+    res.render('prijava');
+});
+
+ruter.get('/registracija', (req, res)=>{
+    res.render('registracija');
+});
 
 
-module.exports=ruter;
+module.exports=ruter; //export rutera 
 
 //var path=require('path');
 //app.use(bodyParser.urlencoded({extended:false}));
