@@ -1,11 +1,11 @@
 const express=require('express'); //pozivanje modula express
 const path=require('path');
 const mysql = require('mysql');
-const ruter= require('./rute/ruter');
 const bodyParser = require('body-parser');
 const app =  express();
 const dotenv=require('dotenv');
 const cookieParser =require ('cookie-parser');
+const logger = require ('morgan');
 
 dotenv.config({path: './.env'});
 
@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.raw());
 app.use(bodyParser.text());
-//podaci koje uzimamo sa stranice su u JSON formatu
 app.use(express.json());
 app.use(cookieParser());
 
@@ -31,8 +30,8 @@ app.use("/", require('./rute/ruter'));
 app.use("/auth", require('./rute/auth'));
 
 
-var bazaConfig = require('./config/baza');
-var connection = mysql.createConnection(bazaConfig.veza);
+const bazaConfig = require('./config/baza');
+const connection = mysql.createConnection(bazaConfig.veza);
 connection.connect((err) => {
   if (err) throw err;
   console.log('Uspješno povezivanje s bazom!');

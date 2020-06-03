@@ -6,12 +6,11 @@ const bcrypt = require ('bcryptjs');
 ///veza na bazu podataka
 var bazaConfig = require('../config/baza');
 var connection = mysql.createConnection(bazaConfig.veza);
-//connection.query("USE" + bazaconfig.veza);
 
 
 //////////////////////PRIJAVA//////////////////////////////////////
 //async zapravo omogućava da server čeka završetak akcije tj. da se ne ugasi
-exports.prijava= async(req,res)=>{
+exports.prijava= (req,res)=>{
     try {
         const {email, password}=req.body;
 
@@ -24,7 +23,7 @@ exports.prijava= async(req,res)=>{
         connection.query('SELECT * FROM Admin WHERE email = ?',[email], (error,results)=>{
             console.log(results);
                             //iza ! ide await, ali sa time mi nikako nije radio login, sada radi bez provjere lozinke  
-            if( !results || !(bcrypt.compare(password, results[0].password)) ){
+            if(!results || !(bcrypt.compare(password, results[0].password)) ){
                 res.status(401).render('prijava', {
                     message: 'Korisničko ime ili lozinka nisu dobro unešeni!'
                 });

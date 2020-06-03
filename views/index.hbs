@@ -1,3 +1,8 @@
+<?php
+function build_calendar
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +34,7 @@
         Rezervacija proslave rođendanske zabave
       </div>
         <div class="card-body">
-          <form action="/auth/index" method="POST">
+          <form action="/auth/" method="POST">
             <div class="form-group">
               <label for="ime">Ime roditelja:</label>
               <input type="text" class="form-control" id="ime" name="ime" required>
@@ -40,7 +45,7 @@
             </div>
             <div class="form-group">
               <label for="ime_slavljenika">Ime slavljenika:</label>
-              <input type="text" class="form-control" id="prezime" name="prezime" required>
+              <input type="text" class="form-control" id="ime_slavljenika" name="ime_slavljenika" required>
             </div>
             <div class="form-group">
               <label for="br_uzvanika">Broj uzvanika:</label>
@@ -69,6 +74,9 @@
         </div>
        </div> 
 </div> 
+      {{#if message3}}
+      <h4 class="alert alert-success mt-4">{{message3}}</h4>
+      {{/if}}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   </body>
 </html>
