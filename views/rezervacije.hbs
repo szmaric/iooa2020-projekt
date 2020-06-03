@@ -16,7 +16,8 @@
         <li ><a href="/">Početna stranica</a></li>
       </ul>
       <ul class="nav  navbar-right">
-        <li class="active"><a href="/prijava">Prijava</a></li>
+        <li class="active"><a href="/rezervacije">Pregled rezervacija</a></li>
+        <li><a href="/registracija"> Registracija</a></li>
       </ul>
     </div>
   </nav>
@@ -28,12 +29,12 @@
         <div class="card-body">
           <form action="/auth/prijava" method="POST">
             <div class="form-group">
-              <label for="username">Korisničko ime</label>
-              <input type="text" class="form-control" id="username" name="username" >
+              <label for="email">E-mail adresa</label>
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
               <label for="password">Lozinka</label>
-              <input type="password" class="form-control" id="password" name="password" >
+              <input type="password" class="form-control" id="password" name="password">
             </div>
             <button type="submit" class="btn btn-outline-primary">Prijava</button>
          </form>

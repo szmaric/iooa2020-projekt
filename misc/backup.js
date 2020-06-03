@@ -39,3 +39,17 @@ var baza = new sqlite3.Database('rodendan.db', (err) => {
   });
    
   });*/
+
+
+  //povezivanje s bazom phpmyadmin
+/*const veza = mysql.createConnection({
+  host: 'ucka.veleri.hr',
+  user: 'szmaric',
+  password: '11',
+  database: 'szmaric',
+});
+
+veza.connect((err) => {
+  if (err) throw err;
+  console.log('Uspješno povezivanje s bazom!');
+});*/

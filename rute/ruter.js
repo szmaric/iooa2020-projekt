@@ -24,6 +24,12 @@ ruter.get('/registracija', (req, res)=>{
     res.render('registracija');
 });
 
+ruter.get('/rezervacije', (req, res)=>{
+    res.render('rezervacije');
+});
+
+
+
 
 module.exports=ruter; //export rutera 
 

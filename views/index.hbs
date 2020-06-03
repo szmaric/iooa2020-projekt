@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/stil.css">
     <title>Igraonica Barbi</title>
   </head>
-  <nav class="navbar navbar-inverse">
+  <body>
+  <nav class="navbar navbar-inverse .top-nav-collapse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand">Igraonica Barbi</a>
@@ -20,7 +21,54 @@
         <li><a href="/prijava">Prijava</a></li>
       </ul>
     </div>
-  </nav>
+      </nav>
+   </div>   
+   <div class=" mt-4 container">
+    <div class="card">
+      <div class="card-header">
+        Rezervacija proslave rođendanske zabave
+      </div>
+        <div class="card-body">
+          <form action="/auth/index" method="POST">
+            <div class="form-group">
+              <label for="ime">Ime roditelja:</label>
+              <input type="text" class="form-control" id="ime" name="ime" required>
+            </div>
+            <div class="form-group">
+             <label for="prezime">Prezime roditelja:</label>
+              <input type="text" class="form-control" id="prezime" name="prezime" required>
+            </div>
+            <div class="form-group">
+              <label for="ime_slavljenika">Ime slavljenika:</label>
+              <input type="text" class="form-control" id="prezime" name="prezime" required>
+            </div>
+            <div class="form-group">
+              <label for="br_uzvanika">Broj uzvanika:</label>
+              <input type="integer" class="form-control" id="br_uzvanika" name="br_uzvanika" required>
+            </div>
+            <div class="form-group">
+              <label for="god_slavljenika">Godine slavljenika:</label>
+              <input type="integer" class="form-control" id="god_slavljenika" name="god_slavljenika" required>
+            </div>
+            <div class="form-group">
+              <label for="kontakt">Kontakt broj:</label>
+              <input type="text" class="form-control" id="kontakt" name="kontakt" required>
+            </div>
+            <div class="form-group">
+              <label for="email_adr">E-mail adresa:</label>
+              <input type="text" class="form-control" id="email_adr" name="email_adr" required>
+            </div>
+            <div class="form-group ">
+              <label for="napomena">Napomena:</label>
+              <input type="text" class="form-control" id="napomena" name="napomena" >
+            </div>
+            <div class="row justify-content-center">
+            <button type="submit" class="btn btn-outline-primary">Rezerviraj</button>
+            </div>
+          </form>
+        </div>
+       </div> 
+</div> 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -13,5 +13,7 @@ app.use(bodyParser.text());
 
 
 ruter.post('/registracija', controller.registracija);
+ruter.post('/prijava', controller.prijava);
+
 
 module.exports=ruter;
