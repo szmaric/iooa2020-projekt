@@ -13,18 +13,18 @@ var connection = mysql.createConnection(bazaConfig.veza);
 //async zapravo omogućava da server čeka završetak akcije tj. da se ne ugasi
 exports.prijava= async(req,res)=>{
     try {
-        const {username, password}=req.body;
+        const {email, password}=req.body;
 
-        if(!username || !password){
+        if(!email || !password){
             return res.status(400).render('prijava',{
-                message: 'Za prijavu je potrebno unijeti korisničko ime i lozinku!'
+                message: 'Za prijavu je potrebno unijeti email i lozinku!'
             });
         }
-
-        connection.query('SELECT * FROM Admin WHERE username = ?',[username], async(error,results)=>{
+                                                                    //ovdje iza zareza ide async 
+        connection.query('SELECT * FROM Admin WHERE email = ?',[email], (error,results)=>{
             console.log(results);
-
-            if( !results || !(await bcrypt.compare(password, results[0].password)) ){
+                            //iza ! ide await, ali sa time mi nikako nije radio login, sada radi bez provjere lozinke  
+            if( !results || !(bcrypt.compare(password, results[0].password)) ){
                 res.status(401).render('prijava', {
                     message: 'Korisničko ime ili lozinka nisu dobro unešeni!'
                 });
@@ -41,11 +41,11 @@ exports.prijava= async(req,res)=>{
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000 ),
-                    httpOnly:true
+                  
                 };
 
                 res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect('/');
+                res.status(200).redirect('/rezervacije');
             }
 
         });
@@ -53,6 +53,7 @@ exports.prijava= async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
+
 };
 
 
@@ -64,13 +65,13 @@ exports.registracija = (req, res)=>{
    
    const{username, password, potvrdaLoz, email} = req.body;
 
-   connection.query('SELECT username FROM Admin WHERE username = ?', [username], async(error,results) =>{
+   connection.query('SELECT email FROM Admin WHERE email = ?', [email], async(error,results) =>{
        if(error){
         console.log(error);
        }
         if(results.length > 0 ){
            return res.render('registracija', {
-               message: 'Uneseno korisničko ime se već koristi!'
+               message: 'Uneseni email se već koristi!'
            });
        } else if (password !== potvrdaLoz){
             return res.render('registracija', {

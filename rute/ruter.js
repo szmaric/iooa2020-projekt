@@ -28,7 +28,10 @@ ruter.get('/rezervacije', (req, res)=>{
     res.render('rezervacije');
 });
 
-
+ruter.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
 
 
 module.exports=ruter; //export rutera 
