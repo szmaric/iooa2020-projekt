@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stil.css">
+    <title>Igraonica Barbi</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-inverse .top-nav-collapse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Igraonica Barbi</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Početna stranica</a></li>
+      </ul>
+      <ul class="nav  navbar-right">
+        <li><a href="/prijava">Prijava</a></li>
+      </ul>
+    </div>
+      </nav>
+   </div>  
+   <div class=" mt-4 container">
+    <div class="card">
+      <div class="card-header">
+        Otkazivanje rezervacije proslave rođendanske zabave
+      </div>
+        <div class="card-body">
+          <form action="/auth/otkazivanje" method="POST">
+           <div class = "form-group">
+            <label for="datum">Odaberite datum rezervacije proslave rođendana:</label>
+            <input type="date" class="form-control" id="datum" name="datum" >
+          </div> 
+          <div class = "form-group">
+            <label for="vrijeme">Odaberite vrijeme održavaja proslave rođendana:</label>
+            <input type="time" class="form-control" id="vrijeme" name="vrijeme" >
+          </div> 
+           <div class="form-group ">
+              <label for="napomena">Napomena:</label>
+              <input type="text" class="form-control" id="napomena" name="napomena" >
+          </div>
+            <div class="row justify-content-center">
+            <button type="submit" class="btn btn-outline-danger">Otkaži rezervaciju</button></a>
+          </div>
+          </form>
+        </div>
+       </div> 
+</div> 
+      {{#if message2}}
+      <h4 class="alert alert-danger mt-4">{{message2}}</h4>
+      {{/if}}
+      {{#if message}}
+      <h4 class="alert alert-success mt-4">{{message}}</h4>
+      {{/if}}
+    <script src="server.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  </body>
+</html>
