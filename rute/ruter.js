@@ -27,4 +27,5 @@ ruter.get('/rezervacije', (req, res)=>{
 });
 
 
+
 module.exports=ruter; //export rutera 

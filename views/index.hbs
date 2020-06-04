@@ -1,8 +1,3 @@
-<?php
-function build_calendar
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +15,7 @@ function build_calendar
         <a class="navbar-brand">Igraonica Barbi</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Početna stranica</a></li>
+        <li class="active"><a href="">Početna stranica</a></li>
       </ul>
       <ul class="nav  navbar-right">
         <li><a href="/prijava">Prijava</a></li>
@@ -63,13 +58,21 @@ function build_calendar
               <label for="email_adr">E-mail adresa:</label>
               <input type="text" class="form-control" id="email_adr" name="email_adr" required>
             </div>
-            <div class="form-group ">
+           <div class = "form-group">
+            <label for="datum">Odaberite datum održavanja proslave rođendana:</label>
+            <input type="date" class="form-control" id="datum" name="datum" >
+          </div> 
+          <div class = "form-group">
+            <label for="vrijeme">Odaberite vrijeme održavaja proslave rođendana:</label>
+            <input type="time" class="form-control" id="vrijeme" name="vrijeme" >
+          </div> 
+           <div class="form-group ">
               <label for="napomena">Napomena:</label>
               <input type="text" class="form-control" id="napomena" name="napomena" >
-            </div>
+          </div>
             <div class="row justify-content-center">
-            <button type="submit" class="btn btn-outline-primary">Rezerviraj</button>
-            </div>
+            <button type="submit" class="btn btn-outline-primary">Rezerviraj</button></a>
+          </div>
           </form>
         </div>
        </div> 
@@ -77,6 +80,7 @@ function build_calendar
       {{#if message3}}
       <h4 class="alert alert-success mt-4">{{message3}}</h4>
       {{/if}}
+    <script src="server.js"></script>  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   </body>
 </html>

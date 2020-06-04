@@ -7,17 +7,18 @@ var connection = mysql.createConnection(bazaConfig.veza);
 exports.rezervacija = (req, res) =>{
     console.log(req.body);
    
-   const{ime, prezime, ime_slavljenika, br_uzvanika, god_slavljenika, kontakt, email_adr, napomena} = req.body;
+   const{ime, prezime, ime_slavljenika, br_uzvanika, god_slavljenika, kontakt, email_adr, napomena, datum, vrijeme} = req.body;
 
-   connection.query('INSERT INTO Korisnik SET  ?', {ime:ime, prezime:prezime, ime_slavljenika:ime_slavljenika, br_uzvanika: br_uzvanika,
-     god_slavljenika:god_slavljenika, kontakt:kontakt, email:email_adr, napomena:napomena},(error, results)=>{
-    if(error){
-        console.log(error);
-    }else{
-        console.log(results);
-        return res.render('index', {
-        message3: 'Uspješno podnesena rezervacija!'
-     });
+   connection.query('INSERT INTO Rezervacija SET  ?', {ime:ime, prezime:prezime, ime_slavljenika:ime_slavljenika, br_uzvanika: br_uzvanika,
+    god_slavljenika:god_slavljenika, kontakt:kontakt, email:email_adr, napomena:napomena, datum:datum, vrijeme:vrijeme},(error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            console.log(results);
+            return res.render('index', {
+            message3: 'Uspješno podnesena rezervacija!'
+        });
     }
     });
 };
+
