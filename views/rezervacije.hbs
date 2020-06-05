@@ -22,21 +22,35 @@
   <div class="container mt-4">
     <div class="card">
       <div class="card-header">
-        Prijava
+        Pregled rezervacija
       </div>
         <div class="card-body">
-          <form action="/auth/prijava" method="POST">
-            <div class="form-group">
-              <label for="email">E-mail adresa</label>
-              <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="password">Lozinka</label>
-              <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <div class="row justify-content-center">
-            <button type="submit" class="btn btn-outline-primary">Prijava</button>
-            </div>
+          <form action="/auth/pregledRez" method="POST" >
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Ime roditelja</th>
+                  <th scope="col">Ime slavljenika</th>
+                  <th scope="col">Broj uzvanika</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Datum rezervacije</th>
+                  <th scope="col">Vrijeme rezervacije</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each data}}
+                <tr>
+                  <th scope="row">1</th>
+                  <td>{{this.ime}}</td>
+                  <td>{{this.ime_slavljenika}}</td>
+                  <td>{{this.br_uzvanika}}</td>
+                  <td>{{this.email}}</td>
+                  <td>{{this.datum}}</td>
+                  <td>{{this.vrijeme}}</td>
+                </tr>
+               {{/each}}
+              </tbody>
+            </table>
          </form>
         </div>
     

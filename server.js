@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app =  express();
 const dotenv=require('dotenv');
 const cookieParser =require ('cookie-parser');
-const logger = require ('morgan');
+
 
 dotenv.config({path: './.env'});
 

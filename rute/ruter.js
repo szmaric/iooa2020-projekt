@@ -2,12 +2,15 @@ const express=require("express");
 const ruter =express.Router();
 var app=express();
 var bodyParser = require('body-parser');
+const mysql = require('mysql');
 
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(bodyParser.text());
 
+var bazaConfig = require('../config/baza');
+var connection = mysql.createConnection(bazaConfig.veza);
 
 //pozivanje stranica putem controllera
 ruter.get('/', (req, res)=>{

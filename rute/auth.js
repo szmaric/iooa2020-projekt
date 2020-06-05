@@ -17,6 +17,7 @@ ruter.post('/registracija', controller.registracija);
 ruter.post('/prijava', controller.prijava);
 ruter.post('/', controllerRez.rezervacija);
 ruter.post('/otkazivanje', controllerRez.otkazivanje);
+ruter.post('/rezervacije', controllerRez.pregledRez);
 
 
 module.exports=ruter;

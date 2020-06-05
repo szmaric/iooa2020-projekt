@@ -32,9 +32,8 @@ exports.rezervacija = (req, res) =>{
     console.log(req.body);
    
    const{ime, prezime, ime_slavljenika, br_uzvanika, god_slavljenika, kontakt, email_adr, napomena, datum, vrijeme} = req.body;
-
-
-   connection.query('SELECT datum,vrijeme FROM Rezervacija WHERE datum = ? and vrijeme = ? and status_rezervacije is null', [datum, vrijeme], async(error,results) =>{
+    //naišla sam na problem, ako stavim i status_rezervacije is null da mi ne provjerava one koji su otkazani jednostavno ne radi i uvijek dozvol rezervaciju
+   connection.query('SELECT datum,vrijeme,status_rezervacije FROM Rezervacija WHERE status_rezervacije is null and datum = ? and vrijeme = ?', [datum, vrijeme], async(error,results) =>{
     if(error){
      console.log(error);
     }
@@ -57,4 +56,18 @@ exports.rezervacija = (req, res) =>{
     });
 });
 
+};
+
+
+exports.pregledRez = (req, res)=>{
+    console.log(req.body);
+
+    connection.query("SELECT ime, ime_slavljenika, br_uzvanika, email, datum, vrijeme from Rezervacija where status_rezervacije is null", (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            console.log("Rezultati:",results);
+            res.render('rezervacije', {data: results});
+        }
+    });
 };
