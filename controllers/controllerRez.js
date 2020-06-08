@@ -62,7 +62,7 @@ exports.rezervacija = (req, res) =>{
 exports.pregledRez = (req, res)=>{
     console.log(req.body);
 
-    connection.query("SELECT ime, ime_slavljenika, br_uzvanika, email, datum, vrijeme from Rezervacija where status_rezervacije is null", (error, results)=>{
+    connection.query("SELECT sifra_rezervacije,ime, ime_slavljenika, br_uzvanika, email, datum, vrijeme from Rezervacija where status_rezervacije=' ' ", (error, results)=>{
         if(error){
             console.log(error);
         }else{
@@ -71,3 +71,19 @@ exports.pregledRez = (req, res)=>{
         }
     });
 };
+
+
+
+exports.otkazane = (req, res)=>{
+    console.log(req.body);
+
+    connection.query("SELECT sifra_rezervacije,ime, ime_slavljenika, br_uzvanika, email, datum, vrijeme from Rezervacija where status_rezervacije='otkazano' ", (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            console.log("Rezultati:",results);
+            res.render('rezervacije', {data: results});
+        }
+    });
+};
+

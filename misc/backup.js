@@ -103,3 +103,28 @@ veza.connect((err) => {
 
 };*/
 
+/*exports.pregledRez = (response)=>{
+    executeQuery("SELECT ime, ime_slavljenika, br_uzvanika, email, datum, vrijeme from Rezervacija where status_rezervacije=''", function(result){
+        console.log(result);
+        response.write("<table><tr>");
+        for(var column in result[0]){
+            response.write('<td><label>'+column+'</label></td>');
+            res.write('</tr>');
+        }
+        for (var row in result){
+            response.write('<tr>');
+            for(var column in result[row]){
+                response.write('<td><label>'+result[row][column]+'</label></td>');
+            }
+            response.write('</tr>');
+        }
+        response.end('</table>');
+    }); 
+
+    function executeQuery (sql, cb){
+        connection.query(sql, function (error, result, fields){
+           if(error) {throw error;} 
+           cb(result);
+        });
+    }
+};*/

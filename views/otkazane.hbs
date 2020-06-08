@@ -21,7 +21,7 @@
     </div>
   </nav>
   <div class="container mt-4 table-responsive">
-          <form action="/auth/pregledRez" method="GET" >
+          <form action="/auth/otkazane" method="GET" >
 
             <table class="table table-striped">
               <thead>
@@ -61,7 +61,7 @@
    
     getData();
     async function getData(){
-      const response = await fetch('/ruter/pregledRez');
+      const response = await fetch('/ruter/otkazane');
       const podaci= await respone.json();
       console.log(podaci);
     

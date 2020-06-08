@@ -18,7 +18,7 @@ exports.prijava= (req,res)=>{
         }else{
             if(results.length>0){
                 if(password==results[0].password){
-                    return res.status(200).render('rezervacije',{
+                    return res.status(200).render('izbornik',{
                         message2:'Uspješna prijava!'
                     });
                 }else{

@@ -3,6 +3,7 @@ const ruter =express.Router();
 var app=express();
 var bodyParser = require('body-parser');
 const mysql = require('mysql');
+const controllerRez =require("../controllers/controllerRez");
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -25,8 +26,12 @@ ruter.get('/registracija', (req, res)=>{
     res.render('registracija');
 });
 
-ruter.get('/rezervacije', (req, res)=>{
+ruter.get('/rezervacije', controllerRez.pregledRez,(req, res) =>{
     res.render('rezervacije');
+});
+
+ruter.get('/otkazane', controllerRez.otkazane,(req, res) =>{
+    res.render('otkazane');
 });
 
 ruter.get('/otkazivanje', (req, res)=>{
