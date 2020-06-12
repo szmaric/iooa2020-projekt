@@ -1,11 +1,20 @@
 const mysql = require('mysql');
 const express=require('express');
+const nodemailer=require('nodemailer');
 
 var bazaConfig = require('../config/baza');
 var connection = mysql.createConnection(bazaConfig.veza);
 
+const transporter=nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user: 'projektiooa@gmail.com',
+        pass: 'projekt123'
+    }
+});
 
 
+////////////////////OTKAZIVANJE REZERVACIJE/////////////////////////
 exports.otkazivanje=(req, res)=>{
     console.log(req.body);
 
@@ -28,6 +37,8 @@ exports.otkazivanje=(req, res)=>{
 };
 
 
+
+////////////////////REZERVACIJA///////////////////
 exports.rezervacija = (req, res) =>{
     console.log(req.body);
    
@@ -56,9 +67,40 @@ exports.rezervacija = (req, res) =>{
     });
 });
 
+
+/////////////////SLANJE EMAILA POTVRDE///////////////
+function sendMail(mail){
+    var mailOptions={
+        from: 'projektiooa@gmail.com',
+        to: mail.to,
+        subject: mail.subject,
+        html: mail.body
+    };
+
+    transporter.sendMail(mailOptions, function(err, info){
+        if (err){
+            console.log(err);
+        }else{
+            console.log('Potvrda za rezervaciju je poslana na unesenu email adresu' +info.response);
+        }
+    });
+}
+
+    mail={
+        to:req.body.email_adr,
+        subject: 'Potvrda rezervacije',
+        body: 
+        `Poštovani,
+
+obavještavamo vas da je vaša rezervacija uspješno provedena.
+Vidimo se u igraonici Barbi!`
+    };
+   
+  sendMail(mail);  
+
 };
 
-
+////////////////////////////PREGLED REZERVACIJA///////////////////////////  
 exports.pregledRez = (req, res)=>{
     console.log(req.body);
 
@@ -73,7 +115,7 @@ exports.pregledRez = (req, res)=>{
 };
 
 
-
+//////////////////////PREGLED OTKAZANIH REZERVACIJA////////////////
 exports.otkazane = (req, res)=>{
     console.log(req.body);
 
