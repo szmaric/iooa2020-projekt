@@ -30,6 +30,12 @@
   <p>Za sve dodatne informacije javite nam se na email@email.com</p>
 </div>   
    <div class=" mt-4 container">
+       {{#if message3}}
+      <h4 class="alert alert-success mt-4">{{message3}}</h4>
+      {{/if}}
+      {{#if message}}
+      <h4 class="alert alert-danger mt-4">{{message}}</h4>
+      {{/if}}
     <div class="card">
       <div class="card-header">
         Rezervacija proslave rođendanske zabave
@@ -84,12 +90,7 @@
         </div>
        </div> 
 </div> 
-      {{#if message3}}
-      <h4 class="alert alert-success mt-4">{{message3}}</h4>
-      {{/if}}
-      {{#if message}}
-      <h4 class="alert alert-danger mt-4">{{message}}</h4>
-      {{/if}}
+    
     <script src="server.js"></script>  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 

@@ -36,8 +36,6 @@ exports.prijava= (req,res)=>{
     });
 };
 
-
-
 ////////////////////////////REGISTRACIJA//////////////////////////
 exports.registracija = (req, res)=>{
    console.log(req.body);

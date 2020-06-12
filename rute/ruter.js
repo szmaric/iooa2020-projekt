@@ -22,6 +22,19 @@ ruter.get('/prijava', (req, res)=>{
     res.render('prijava');
 });
 
+ruter.get('/odjava', function(req, res, next) {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function(err) {
+        if(err) {
+          return next(err);
+        } else {
+          return res.redirect('/');
+        }
+      });
+    }
+  });
+
 ruter.get('/registracija', (req, res)=>{
     res.render('registracija');
 });

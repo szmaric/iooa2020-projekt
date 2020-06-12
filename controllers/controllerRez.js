@@ -36,7 +36,7 @@ exports.otkazivanje=(req, res)=>{
         }
     });
 
-    /////////////////SLANJE EMAILA O OTKAZIVANJU REZERVACIJE///////////////
+/////////////////SLANJE EMAILA O OTKAZIVANJU REZERVACIJE///////////////
 function sendMail(mail){
     var mailOptions={
         from: 'projektiooa@gmail.com',
