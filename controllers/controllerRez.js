@@ -19,12 +19,13 @@ exports.otkazivanje=(req, res)=>{
     console.log(req.body);
 
     const { datum, vrijeme}=req.body;
-
+    
     connection.query("UPDATE Rezervacija SET status_rezervacije='otkazano' where datum= ? and vrijeme =?", [datum, vrijeme],(error, results)=>{
+        ///sve sam probala, ali ne mogu otkriti što je problem ovdje da se uvijek javlja ista poruka...
         if (!datum || !vrijeme){
             console.log(results);
             return res.render('otkazivanje', {
-            message2: 'Uneseni datumi i vrijeme ne postoje u sustavu. Unesite ispravan datum i vrijeme!'
+            message2: 'Uneseni datumi i vrijeme ne postoje u sustavu. Unesite ispravan datum i vrijeme rezervacije!'
             
         });
         }else{
@@ -34,6 +35,35 @@ exports.otkazivanje=(req, res)=>{
         });
         }
     });
+
+    /////////////////SLANJE EMAILA O OTKAZIVANJU REZERVACIJE///////////////
+function sendMail(mail){
+    var mailOptions={
+        from: 'projektiooa@gmail.com',
+        to: mail.to,
+        subject: mail.subject,
+        html: mail.body
+    };
+
+    transporter.sendMail(mailOptions, function(err, info){
+        if (err){
+            console.log(err);
+        }else{
+            console.log('Potvrda za otkazivanje rezervacije je poslana na unesenu email adresu' +info.response);
+        }
+    });
+}
+
+    mail={
+        to:req.body.email_adr,
+        subject: 'Otkazivanje rezervacije',
+        body: 
+        `Poštovani,
+
+obavještavamo vas da je vaša rezervacija uspješno otkazana.`
+    };
+   
+  sendMail(mail);  
 };
 
 
